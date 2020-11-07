@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>area_choose</title>
+	<script src="/static/js/jquery-1.12.4.min.js"></script>
+	<script>
+		$(function(){
+			//发起一个ajax请求'/prov',获取省级的所有数据
+			//获取信息，使用get
+			//涉及到信息修改，使用post
+			$.get('/prov', function(data){
+				//回调函数
+				//获取返回的data
+				res = data.data
+
+				//遍历res
+			})
+		})
+	</script>
+</head>
+
+<body>
+<select id="prov">
+	<option>---请选择省---</option>
+</select>
+
+<select id="city">
+	<option>---请选择市---</option>
+</select>
+
+<select id="dis">
+	<option>---请选择县---</option>
+</select>
+
+</body>
+</html>

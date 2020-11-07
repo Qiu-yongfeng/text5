@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>static_test</title>
+</head>
+<body>
+	{% load static from staticfiles%}
+
+	<img src="/static/image/1.jpg"><br>
+	动态： {%static 'image/1.jpg'%}<br>
+	<img src="{%static 'image/1.jpg'%}">
+	
+</body>
+</html>

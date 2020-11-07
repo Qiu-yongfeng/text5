@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>index</title>
+</head>
+<body>
+	<h1>使用模板变量是时候：.之前的可能是一个字典，列表或对象</h1>
+	使用对象属性：{{bookinfo.bname}}	<br>
+	使用列表属性：{{list1.1}} <br>
+	使用字典属性：{{dict1.2}} <br>
+
+	<h1></h1>
+	<ul>
+		{#我是个单行注释，你看不到的#}
+		{%comment%}
+		我也是注释(多行)，你看不到的
+		{%endcomment%}
+		<!--我是html的注释，你可以在源代码看得到-->
+
+		{%for book in books%}
+		<li>foorloop.counter显示循环的第几次{{forloop.counter}}--{{book.bname}}</li>
+		{%endfor%}
+	</ul>
+</body>
+</html>

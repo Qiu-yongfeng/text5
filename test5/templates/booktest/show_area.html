@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>show_areas</title>
+</head>
+<body>
+<ul>
+	<!--
+		Page类实例对象
+	调用Paginator对象的page()方法返回Page对象，不需要手动构造。
+	属性object_list：返回当前页对象的列表。
+	属性number：返回当前是第几页，从1开始。
+	属性paginator：当前页对应的Paginator对象。
+	方法has_next()：如果有下一页返回True。
+	方法has_previous()：如果有上一页返回True。
+	方法len()：返回当前页面对象的个数。
+
+		Paginator类实例对象
+	方法_init_(列表,int)：返回分页对象，第一个参数为列表数据，第二个参数为每页数据的条数。
+	属性count：返回对象总数。
+	属性num_pages：返回页面总数。
+	属性page_range：返回页码列表，从1开始，例如[1, 2, 3, 4]。
+	方法page(m)：返回Page类实例对象，表示第m页的数据，下标以1开始。
+	 -->
+
+	{%for area in page%}	
+		<li>{{area.aname}}</li>
+	{%endfor%}
+
+	<!-- 上一页	 -->
+	{%if page.has_previous%}
+	<a href="/show_area{{page.previous_page_number}}">&lt;上一页</a>
+	{%endif%}
+
+	{%for pindex in page.paginator.page_range%}
+		<!-- 如果是当前页就不要超链接 -->
+		{%if pindex = page.number%}	
+			{{pindex}}
+		{%else%}
+		<a href="/show_area{{pindex}}">{{pindex}}</a>
+		{%endif%}
+	{%endfor%}
+
+	<!-- 下一页 -->
+	{%if page.has_next%}
+	<a href="/show_area{{page.next_page_number}}">下一页&gt;</a>
+	{%endif%}
+
+</ul>
+</body>
+</html>

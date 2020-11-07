@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>change_psd</title>
+</head>
+<body>
+<form method="post" action="/change_psw_action">
+	{% csrf_tokon%}
+新密码<input type="password" name="psw">
+<input type="submit" name="确认">
+</form>
+</body>
+</html>
